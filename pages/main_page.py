@@ -1,8 +1,16 @@
 import allure
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
+from const import Url
 
 class MainPage(BasePage):
+    @allure.step("Открываем сайт")
+    def open_site(self):
+        return self.driver.get(Url.url_scooter)
+
+    @allure.step("Нажимаем кнопку Куки")
+    def cookie_button_click(self):
+        self.driver.find_element(*MainPageLocators.cookie_button).click()
 
     @allure.step('Нажимаем на лого Яндекса и переходим на новую вкладку')
     def click_to_yandex_logo(self):
@@ -10,8 +18,6 @@ class MainPage(BasePage):
         main_window_handle = self.driver.current_window_handle
         super().switch_to_new_tab(main_window_handle)
 
-        
-    
     @allure.step("Нажимаем на логотип Самокат")
     def scooter_logo_click(self):
         return self.driver.find_element(*MainPageLocators.scooter_logo_link).click()
@@ -23,11 +29,6 @@ class MainPage(BasePage):
     @allure.step("Нажимаем на кнопку 'Заказать' в конце страницы")
     def bottom_order_button_click(self):
         return self.driver.find_element(*MainPageLocators.bottom_order_button).click()
-    
-    @allure.step("Скролим к блоку с вопросами")
-    def scrolling_to_questions(self):
-        element = self.driver.find_element(*MainPageLocators.question_7)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
     
     @allure.step("Нажимаем на вопрос")
     def question_click(self, question):

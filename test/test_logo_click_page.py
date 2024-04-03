@@ -4,7 +4,6 @@ from pages.main_page import MainPage
 from pages.dzen_page import DzenPage
 
 
-
 class TestLogoSite:
 
     @allure.title("Переход на сайт Самокат")
@@ -14,7 +13,6 @@ class TestLogoSite:
         main_page.header_order_button_click()
         main_page.scooter_logo_click()
         assert main_page.get_current_url() == Url.url_scooter
-
 
     @allure.title('Тест клика на лого Яндекс')
     def test_click_yandex_logo(self, driver):

@@ -2,8 +2,6 @@ class Constants:
     name = "Андрей"
     surname = "Тестерович"
     address = "Улица Тестировщиков"
-    metro1 = "Чистые пруды"
-    metro2 = "Охотный Ряд"
     phonenumber = "89991112233"
 
 class Answer:

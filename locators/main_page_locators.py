@@ -17,9 +17,6 @@ class MainPageLocators:
     # Кнопка "Заказать" в середине
     bottom_order_button = [By.XPATH, "//div[@class = 'Home_FinishButton__1_cWm']/button[text() = 'Заказать']"]
 
-    
-
-
     # Вопросы:
     question_1 = [By.ID, "accordion__heading-0"] # 1-ый вопрос
     question_2 = [By.ID, "accordion__heading-1"] # 2-ой вопрос

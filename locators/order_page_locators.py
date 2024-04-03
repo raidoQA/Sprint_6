@@ -6,8 +6,9 @@ class OrderPageLocators:
     name_input = [By.XPATH, "//input[@placeholder='* Имя']"] # ввод имени
     surname_input = [By.XPATH, "//input[@placeholder='* Фамилия']"] # ввод фамилии
     address_input = [By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"] # ввод адреса доставки
-    metro = [By.CSS_SELECTOR, "input[placeholder='* Станция метро']"] # станции метро с выпадающим списком
-    metro_station = [By.CLASS_NAME, "select-search__options"] # список станций
+    metro = (By.XPATH, "//input[@placeholder='* Станция метро']")
+    metro1 = (By.XPATH, "//div[@class='Order_Text__2broi' and text()='Чистые пруды']")
+    metro2 = (By.XPATH, "//div[@class='Order_Text__2broi' and text()='Охотный Ряд']")
     phonenumber_input = [By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"] # ввод номера телефона
     button_next = [By.XPATH, "//button[text()='Далее']"] # кнопка "Далее"
 
