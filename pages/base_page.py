@@ -9,6 +9,12 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
     
+    def find_element(self, *locator):
+        return self.driver.find_element(*locator)
+    
+    def click_element(self, *locator):
+        self.find_element(*locator).click()
+    
     def wait_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_all_elements_located(locator))
     
@@ -33,13 +39,12 @@ class BasePage:
         new_window_handle = [handle for handle in self.driver.window_handles if handle != main_window_handle][0]
         self.driver.switch_to.window(new_window_handle)
     
-    @allure.step('Клик на лого Яндекс и переключение на новую вкладку')
-    def click_to_yandex_logo(self):
-        self.click_to_logo(self.logo_yandex)
-        main_window_handle = self.driver.current_window_handle
-        super().switch_to_new_tab(main_window_handle)
-
-    @allure.step("Скролим к блоку с вопросами")
-    def scrolling_to_questions(self):
-        element = self.driver.find_element(*MainPageLocators.question_7)
+    def get_current_window_handle(self):
+        return self.driver.current_window_handle
+    
+    def scroll_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def open_url(self, url):
+        self.driver.get(url)
+    
